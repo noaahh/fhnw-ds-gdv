@@ -1,23 +1,38 @@
-name: Building and testing
-on: [push]
+
+name: Compile Latex and Release PDF
+
+on:
+  workflow_dispatch:
+    
 jobs:
-  building:
+  build_latex:
     runs-on: ubuntu-latest
-    container:
-      image: alexpovel/latex
-      # Need root, otherwise this exact issue occurs:
-      # https://github.community/t/permission-problems-when-checking-out-code-as-part-of-github-action/202263
-      options: --user root
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Build all LaTeX PDFs
-        run: make tex
-      - name: Build README PDF
-        run: make README.pdf
-      - name: Archive compilation artifacts
-        uses: actions/upload-artifact@v3
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@v2
         with:
-          name: pdfs
-          path: ./*.pdf
-          if-no-files-found: error
+          root_file: report/main.tex
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.run_number }}
+          release_name: Version ${{ github.run_number }}
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset 
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }} 
+          asset_path: ./main.pdf
+          asset_name: main.pdf
+          asset_content_type: pdf
