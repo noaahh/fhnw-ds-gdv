@@ -1,8 +1,9 @@
-
 name: Compile Latex and Release PDF
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - master
     
 jobs:
   build_latex:
@@ -35,4 +36,4 @@ jobs:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
           asset_path: ./main.pdf
           asset_name: main.pdf
-          asset_content_type: pdf
+          asset_content_type: application/pdf
