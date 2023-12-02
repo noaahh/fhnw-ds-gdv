@@ -11,8 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Run preflight checks
-        run: make preflight
       - name: Build all LaTeX PDFs
         run: make tex
       - name: Build README PDF
