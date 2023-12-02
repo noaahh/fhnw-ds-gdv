@@ -4,37 +4,38 @@ on:
   push:
     branches:
       - master
-
+    
 jobs:
   build_latex:
     runs-on: ubuntu-latest
     steps:
       - name: Set up Git repository
         uses: actions/checkout@v2
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
           working_directory: report
           root_file: main.tex
 
-      - name: Create Release
-        id: create_release
+      - name: Release
+        id: release
         uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: $
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: $
-          release_name: Release $
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }} - ${{ github.event.head_commit.message }}
           draft: false
           prerelease: false
 
-      - name: Upload Release Asset
-        id: upload-release-asset 
+      - name: Upload
+        id: upload
         uses: actions/upload-release-asset@v1
         env:
-          GITHUB_TOKEN: $
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: $ 
-          asset_path: ./main.pdf
+          upload_url: ${{ steps.release.outputs.upload_url }}
+          asset_path: ./report/main.pdf
           asset_name: main.pdf
-          asset_content_type: pdf
+          asset_content_type: application/pdf
