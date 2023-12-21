@@ -8,37 +8,37 @@ Jacques Bertin identified several visual variables that are pivotal in shaping h
     \centering
     \renewcommand{\arraystretch}{1.5} % Increase row height
     \begin{tabularx}{\textwidth}{|X|X|X|}
-    \hline
-    \textbf{Variable} & \textbf{Strengths} & \textbf{Weaknesses} \\
-    \hline \hline
-    Size & Easily distinguishable & Limited scalability \\
-    \hline
-    Shape & Good for categorization & Limited set of easily distinguishable shapes \\
-    \hline
-    Lightness/Value & Wide range & Affected by surrounding colors \\
-    \hline
-    Orientation & Effective for differentiation & Can be confusing if too many orientations \\
-    \hline
-    Texture & Effective for background differentiation & Limited set and may be confusing \\
-    \hline
-    Location & Fundamental to spatial analysis & Requires good layout \\
-    \hline
-    Hue & Excellent for categories & Limited number of easily distinguishable hues \\
-    \hline
-    Saturation/Intensity & Good for indicating importance & Can overwhelm if used excessively \\
-    \hline
-    Arrangement & Effective for organization & Requires thoughtful design \\
-    \hline
+\hline
+\textbf{Variable}    & \textbf{Strengths}                       & \textbf{Weaknesses}                           \\
+\hline \hline
+Size                 & Easily distinguishable                   & Limited scalability                           \\
+\hline
+Shape                & Good for categorization                  & Limited set of easily distinguishable shapes  \\
+\hline
+Lightness/Value      & Wide range                               & Affected by surrounding colors                \\
+\hline
+Orientation          & Effective for differentiation            & Can be confusing if too many orientations     \\
+\hline
+Texture              & Effective for background differentiation & Limited set and may be confusing              \\
+\hline
+Location             & Fundamental to spatial analysis          & Requires good layout                          \\
+\hline
+Hue                  & Excellent for categories                 & Limited number of easily distinguishable hues \\
+\hline
+Saturation/Intensity & Good for indicating importance           & Can overwhelm if used excessively             \\
+\hline
+Arrangement          & Effective for organization               & Requires thoughtful design                    \\
+\hline
     \end{tabularx}
     \caption{Bertin's Visual Variables}
     \label{tab:bertin_variables}
-\end{table}    
+\end{table}
 
 Understanding and effectively using these variables can greatly improve the clarity and impact of a visualization. The scatter plot (Figure \ref{fig:lo2_scatter_plot}) demonstrates the interplay of size, hue, and spatial positioning to represent different data dimensions. The size of each point corresponds to a country's population, the hue indicates its continent, and the axes show GDP per capita and life expectancy. This visualization exemplifies how combining various visual variables can effectively convey multi-faceted data relationships.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/plots/lo2_life_exp_vs_gdp_cap_2007.png} 
+\includegraphics[width=0.8\textwidth]{images/plots/lo2_life_exp_vs_gdp_cap_2007.png}
     \caption{Scatter Plot of Life Expectancy vs. GDP per Capita (2007): Demonstrating the Integration of Size, Hue, and Spatial Positioning in Data Visualization.}
     \label{fig:lo2_scatter_plot}
 \end{figure}
@@ -47,14 +47,13 @@ Understanding and effectively using these variables can greatly improve the clar
 Gestalt psychology offers valuable insights into how humans perceive visual elements, which can be leveraged to improve data visualization \cite{kohlerGestaltPsychology1929}. Important principles include figure-ground, proximity, closure, and common fate. Incorporating these principles in data visualization enhances the interpretability and effectiveness of visual representations, leading to better comprehension and decision-making.
 
 \subsubsection{Figure-Ground}
-
-The figure-ground principle aids in distinguishing the object (figure) from the background (ground), which is particularly crucial in map visualizations \cite{tverskySpatialSchemasMaps1999}.
+The figure-ground principle aids in distinguishing the object (figure) from the background (ground), which is particularly crucial in map visualizations.
 
 The map visualization (Figure \ref{fig:lo2_scatter_plot}) demonstrates the figure-ground principle, where specific countries (highlighted in blue) are made prominent against a uniform background. This contrast aids in distinguishing these countries from the rest of the world, emphasizing their data in the global context. Such visual distinction is essential in complex visual fields to focus attention on key areas.
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/plots/lo2_world_map_highlight_countries_2007.png} 
+\includegraphics[width=0.8\textwidth]{images/plots/lo2_world_map_highlight_countries_2007.png}
     \caption{Map Highlighting Specific Countries (2007): An Illustration of the Figure-Ground Principle in Geographic Data Representation.}
     \label{fig:lo2_map}
 \end{figure}
@@ -72,7 +71,7 @@ The line graph (Figure \ref{fig:lo2_line_chart_w_gaps}), depicting India's life 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/plots/lo2_life_exp_over_time_with_gaps_India.png} 
+\includegraphics[width=0.8\textwidth]{images/plots/lo2_life_exp_over_time_with_gaps_India.png}
     \caption{Line Graph Showing India's Life Expectancy Over Time with Gaps: A Demonstration of the Closure Principle in Visual Data Interpretation.}
     \label{fig:lo2_line_chart_w_gaps}
 \end{figure}
